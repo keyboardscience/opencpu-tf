@@ -29,9 +29,9 @@ variable "opencpu_environment" {
 
 variable "opencpu_contains_phi" {
     default = {
-        "test"        = false
-        "staging"     = true
-        "production"  = true
+        "test"        = "False"
+        "staging"     = "True"
+        "production"  = "True"
     }
 }
 
