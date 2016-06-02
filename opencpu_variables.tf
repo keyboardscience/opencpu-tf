@@ -11,6 +11,7 @@ variable "opencpu_node_type" {
 // Module scaffold -
 
 // Mandatory arguments
+
 variable "opencpu_primary_subnet_id" {}
 variable "opencpu_redundant_subnet_id" {}
 variable "opencpu_node_boostrap_key_name" {}
@@ -48,9 +49,13 @@ variable "opencpu_domain_name" {
 
 variable "aws_deb_amis" {
     default = {
+      // TODO change this ...
         us-west-2 = "ami-98e114f8"
         us-east-1 = "ami-c8bda8a2"
         eu-west-1 = "ami-e079f893"
     }
 }
 
+variable "aws_region" {
+  default = "us-west-2"
+}
