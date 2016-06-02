@@ -100,11 +100,11 @@ resource "aws_elb" "opencpu" {
     }
 
     health_check {
-        health_threshold    = 2
-        unhealthy_threshold = 2
-        timeout             = 3
-        target              = "HTTPS:443/"
-        interval            = 15
+        healthy_threshold    = 2
+        unhealthy_threshold  = 2
+        timeout              = 3
+        target               = "HTTPS:443/" // TODO double check that this is good endpoint to check
+        interval             = 15
     }
 
     instances = ["${aws_instance.opencpu-a.*.id}", "${aws_instance.opencpu-b.*.id}"]
@@ -127,4 +127,3 @@ resource "aws_route53_record" "opencpu-CNAME" {
     type    = "CNAME"
     records = ["${aws_elb.opencpu.dns_name}"]
 }
-
